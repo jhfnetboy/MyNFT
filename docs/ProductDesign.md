@@ -1,4 +1,26 @@
 # OpenEvent NFT (OEN) 产品设计文档
+这是AAStar第一个DApp吧，由多层复合的构成：一个Chrome插件模板，一个Web2绑定和登录的集成模块，以及AAStar的SuperpayMaster Gasless模块,和这个AirAccount，AA账户集成模块，也会添加onboarding存量的crypto EOA用户的Rainbow Bridge模块（building）。
+和其他解决方案核心不同是：去中心演进+服务社区视角，来构建这个可持续的框架。
+
+## 0. 系统Infra依赖
+1. Layer2区块链：部署关键合约，存储资产和关键proof hash
+2. IPFS/ARWeave：存储公开的图片和文件
+3. AAStar Nodes：提供
+- DVT：链下预言机+Guradian签名+Reputation计算器+遗嘱执行器+更多）
+- BLS聚合+链上验证，底层BLS工具，未来替换为PostQuatumn签名和验证模块
+- KMS，各社区为成员提供TEE级别的安全私钥存储和签名服务，支持社交恢复，支持上游合约账户
+- AI-Doris，社区AI模块，支持隐私本地化个人部署和社区版本的高性能AI，对成员提供AI服务
+4. 外部中心化依赖
+- Alchemy RPC，未来替换为轻客户端以及社区联合运营的以太坊全节点
+- Alchemy Bundler，未来替换为嵌入ETH客户端的底层API
+- 其他冗余备份：QuickNode RPC，Candide Bundler等
+- Alchemy 数据服务：索引链上数据，提供类数据库查询，未来替换为自索引的社区数据服务
+5. 社区节点两种运营模式
+- Homemade，需要支持ARM TEE，需要可以连接CloudFlare反向Tunnel，基于Libp2p，节点通信，依赖原始节点提供同步服务从而启动
+- 边缘计算的云服务，需要支持ARM TEE（国内外都有），正常部署和加入p2p网络即可，同样依赖原始节点同步和启动
+6. DVT配置
+- 默认协议启动是三个DVT，合约内默认最低三个联合签名才能通过BLS验证，合约可以多签配置门限数量，可以跟随节点的增加，提供一定冗余
+- 所有DVT都是协议的核心计算模块，提供去中心化验证和计算，获得GTonen和未来规划的PNTs。
 
 ## 1. 系统核心模块 (Core Modules)
 

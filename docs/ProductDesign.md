@@ -22,6 +22,10 @@
 - 默认协议启动是三个DVT，合约内默认最低三个联合签名才能通过BLS验证，合约可以多签配置门限数量，可以跟随节点的增加，提供一定冗余
 - 所有DVT都是协议的核心计算模块，提供去中心化验证和计算，获得GTonen和未来规划的PNTs。
 
+## 渐进式开发+分布式组件
+1. Plugin with AirAccount login：
+2. AAStar SDK with MyNFT basic ability：https://www.alchemy.com/docs/reference/nft-api-quickstart
+
 ## 1. 系统核心模块 (Core Modules)
 
 本系统采用 **“混合式本地化架构 (Hybrid Local-First)”**，核心逻辑运行在客户端（Chrome 插件），数据存储在去中心化网络，计算在本地，交互在链上。
